@@ -36,13 +36,13 @@ Another model of communication Ros has is a client-server or a request-response 
 2. **<node_type>:** Name of the node's executable
 3. **[--ros-args options]:** Optial arguments to pass into the executable
 
-## <ins>**Ros node list**</ins>
+## <ins>**Ros2 node list**</ins>
 **Syntax:** ros2 node list
 
 This command lists all nodes that are currently running in the system.
 The command should be run on a different terminal.
 
-## <ins>**Ros node info**</ins>
+## <ins>**Ros2 node info**</ins>
 **Syntax:** ros2 node info <name_of_node>
 
 This command provides information on the node such as:
@@ -53,16 +53,25 @@ This command provides information on the node such as:
 5. Action Servers
 6. Action Clients
 
-## <ins>**Ros topic list**</ins>
+## <ins>**Ros2 topic list**</ins>
 **Syntax:** ros2 topic list
 
 Just like ros node list rost topic list lists out the topics currently registered in the system
 
 
-## <ins>**Ros topic info**</ins>
+## <ins>**Ros2 topic info**</ins>
 **Syntax:** ros2 topic info <name_of_topic>
 
 This command lists out the named topic's info such as:
 1. Type (Displays the type of messages the topic publishes and/or subscribes to)
 2. Publisher count (Helps to verify that intended nodes are publishing the data)
 3. Subscriber count (Helps to confirm whether nodes are receiving data from the topic)
+
+## <ins>**Ros2 launch**</ins>
+**Syntax:** ros2 launch <package_name> <launch_file> [arguments]
+
+Launch allows for the execution of multiple nodes through a launch file. This is useful for managing a complex robotic system by allowing multiple nodes to start with their required parameters and configurations all at once.
+
+## <ins>**Rqt_graph**</ins>
+Rqt_graph is a graphical tool to provice a viauslisation for the data flow between multiple nodes within the system. The provided plot represents nodes as ovals with their respective names and arrows between them illustrating the type of messages the topic is conveying between them.
+
