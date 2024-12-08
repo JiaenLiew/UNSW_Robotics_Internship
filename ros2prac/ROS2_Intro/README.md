@@ -8,7 +8,6 @@ A Topic is a communication channel used to exchange information between nodes. T
 This model of communication between the Nodes using the Topics is known as the publisher-subscriber communication model, and this form of communication is asynchronous. The publishers and subscribers do not wait for each other to be ready to send or receive messages. There are pros and cons associated to this model of communication such as:
 
 <ins>**Pros**</ins>:
-
 1. The Nodes are independent of each other and thus if one fails it does not block other Nodes from publishing or subscribing data even if they are directly related.
 2. Data can be queued such that if a Node is too busy with current information it can process queued up information in the order that it is received.
 
@@ -20,7 +19,15 @@ A physical way to visualise this is through thinking Nodes as the parts of the r
 
 ## <ins>**Services**</ins>
 
-Another model of communication Ros has is a client-server or a request-response model through services. This model is a synchronous two-way communication between nodes.
+Another model of communication Ros has is a client-server or a request-response model through services. This model is a synchronous two-way communication between nodes meaning that it would only send data to other nodes when specifically called. Just like a Topic the service has its own defined message type which defines the structure of the request and response. A Node can either provide a service (Service Server) by defining its logic and sharing it with other Nodes (Service Clients) through the service.
+
+<ins>**Pros**</ins>:
+1. Services are good for providing immediate responses to one time interactions such as toggling behaviours as its model is both synchronous and deterministic
+2. Simpler and more lightweight and thus is much easier to implement for isolated tasks.
+
+<ins>**Cons**</ins>:
+1. Delays can occur if the server is slow as information will only occur when a client asks and thus the client would need to wait for a response from the server.
+2. Requests can only be processed one at a time bouncing messages between the client and the server as there is no queue like that in the Topic model to slowly process data over time.
 
 ## <ins>**Ros2 run**</ins>
 **Syntax:** ros2 run <package_name> <node_type> [--ros-args options]
